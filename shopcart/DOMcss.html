@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*tr:nth-child(odd) {
+			background:#cccccc;
+		}
+		tr:nth-child(even) {
+			background:#d9d9d9;
+		}*/
+	</style>
+</head>
+<body>
+	<table>
+		<caption>tion</caption>
+		<tr>
+			<th>when</th>
+			<th>where</th>
+		</tr>
+		<tr>
+			<td>june 1</td>
+			<td>beijign</td>
+		</tr>
+		<tr>
+			<td>july 2</td>
+			<td>shanghai</td>
+		</tr>
+	</table>
+	<script>
+	function setCss() {
+		var table = document.getElementsByTagName('table');
+		var odd,rows;
+		for (var i = 0,len = table.length; i < len; i++) {
+			odd = true;
+			rows = table[i].getElementsByTagName('tr');
+			for (var j = 0,len1 = rows.length; j < len1; j++) {
+				if(odd){
+					rows[j].style.backgroundColor = '#cccccc';
+					odd = false;
+				}else{
+					odd = true;
+				}
+			}
+		}
+	}
+	setCss();
+	//找到紧挨node的下一个元素
+	/*function getsibling(node) {
+		if(node.nodeType == 1) {
+			return node;
+		}
+		if(node.nextSibling) {
+			return getsibling(node.nextSibling);
+		}
+		return null;
+	}*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+*{padding:0;margin:0;
+	border:0;box-sizing:border-box;
+	list-style:none;text-decoration:none;}
+
+.clearfix {
+	*zoom:1;
+}
+.clearfix:after,.clearfix:before {
+	display:table;
+	line-height:0;
+	content:'';
+}
+.clearfix:after {
+	clear:both;
+}
+.table-th {
+	width:700px;
+	margin:0 auto;
+	background:#3c78d8;
+	padding:10px;
+}
+.ware {
+	margin-left:100px;
+}
+.unitprice {
+	margin-left:110px;
+}
+.number {
+	margin-left:75px;
+}
+.fullprice {
+	margin-left:60px;
+}
+.poerate {
+	margin-left:40px;	
+}
+.goods {
+	width:700px;
+	margin:0 auto;
+	li {
+	float:left;
+	}
+}
+#f-good,#s-good,#t-good,#fo-good {
+	height:85px;
+	line-height:85px;
+	background:#6fa8dc;
+	border-bottom:1px solid #3d85c6;
+}
+.i-fram1{
+	width:60px;
+}
+.pic1 {
+	width:60px;
+	height:60px;
+	vertical-align:middle;
+	margin:10px 0 10px 30px;
+}
+
+.price1 {
+	width:160px;
+	text-align:center;
+}
+.count {
+	width:30px;
+	text-align:center;
+}
+.ri-price {
+	margin:33px 0;
+	line-height:0;
+}
+.same {
+	display:inline-block;
+	background:#cccccc;
+	width:20px;
+	height:15px;
+	margin-top:-1px;
+	text-align:center;
+	vertical-align:middle;
+	line-height:15px;
+}
+.increase{
+	margin-left:-8px;
+}
+.reduce {
+	margin-right:-8px;
+}
+
+#f-price {
+	width:160px;
+	text-align:center;
+}
+
+.sum {
+	position:relative;
+	width:700px;
+	margin:0 auto;
+	height:30px;
+	padding-left:10px;
+	line-height:30px;
+	background:#c9daf8;
+	border-bottom:1px solid #3d85c6;
+	li {
+	float:left;
+	}
+}
+
+.sum-delete {
+	margin:0 280px 0 40px;
+}
+.selected-goods,.total-money {
+	color:#ff0000;
+	font-weight:bold;
+}
+.total {
+	margin-left:20px;
+}
+#settle {
+	float:right;
+	// display:inline-block;
+	width:60px;
+	height:100%;
+	font-size:16px;
+	// line-height:30px;
+	text-align:center;
+}
+#hide {
+	position:absolute;
+	left:0px;
+	bottom:30px;
+	width:700px;
+	margin:0 auto;
+	border:1px solid red;
+	background:#fff;
+	display:none;
+	div {
+		display:inline-block;
+		position:relative;
+	}
+	img {
+		width:60px;
+		height:60px;
+	}
+	span {
+		position:absolute;
+		width:50px;
+		height:20px;
+		line-height:20px;
+		font-size:12px;
+		top:10px;
+		left:10px;
+		background:#666666;
+		&:hover {
+			background:#434343;
+		}
+	}
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/shopcart.css">
+	<script src = "shopcart.js"></script>
+	<script src = "jquery-1.11.2.js"></script>
+<body>
+	<div class = "table-th">
+		<input type="checkbox" id = "checkall" class = "checkall">
+		<span>全选</span>
+		<span class = "ware">商品</span>
+		<span class = "unitprice">单价</span>
+		<span class = "number">数量</span>
+		<span class = "fullprice">小计</span>
+		<span class = "poerate">操作</span>
+	</div>
+	<div class = "goods">
+		<ul id = "f-good" class = "clearfix">
+			<li>
+				<input type="checkbox"class = "i-fram1">
+			</li>
+			<li>
+				<img src="images/1.jpg" alt="casio" class = "pic1">
+				<span>casio/卡西欧</span>
+			</li>
+			<li class = "price1">5998.8</li>
+			<li class = "ri-price">
+				<span id = "reduce" class = "reduce same"></span>
+				<input type="text" value = 1 id = "count" class = "count">
+				<span id = "increase" class = "increase same">+</span>
+			</li>
+			<li id = "f-price">5999</li>
+			<li id = "delete1" class = "delete">删除</li>
+		</ul>
+		<ul id = "s-good" class = "clearfix">
+			<li>
+				<input type="checkbox" id = "check1" class = "i-fram1">
+			</li>
+			<li>
+				<img src="images/1.jpg" alt="casio" class = "pic1">
+				<span>casio/卡西欧</span>
+			</li>
+			<li class = "price1">5998.8</li>
+			<li class = "ri-price">
+				<span id = "reduce" class = "reduce same"></span>
+				<input type="text" value = 1 id = "count" class = "count">
+				<span id = "increase" class = "increase same">+</span>
+			</li>
+			<li id = "f-price">5999</li>
+			<li id = "delete" class = "delete">删除</li>
+		</ul>
+		<ul id = "t-good" class = "clearfix">
+			<li>
+				<input type="checkbox" id = "check1" class = "i-fram1">
+			</li>
+			<li>
+				<img src="images/1.jpg" alt="casio" class = "pic1">
+				<span>casio/卡西欧</span>
+			</li>
+			<li class = "price1">5998.8</li>
+			<li class = "ri-price">
+				<span id = "reduce" class = "reduce same"></span>
+				<input type="text" value = 1 id = "count" class = "count">
+				<span id = "increase" class = "increase same">+</span>
+			</li>
+			<li id = "f-price">5999</li>
+			<li id = "delete" class = "delete">删除</li>
+		</ul>
+		<ul id = "fo-good" class = "clearfix">
+			<li>
+				<input type="checkbox" id = "check1" class = "i-fram1">
+			</li>
+			<li>
+				<img src="images/1.jpg" alt="casio" class = "pic1">
+				<span>casio/卡西欧</span>
+			</li>
+			<li class = "price1">5998.8</li>
+			<li class = "ri-price">
+				<span id = "reduce" class = "reduce same"></span>
+				<input type="text" value = 1 id = "count" class = "count">
+				<span id = "increase" class = "increase same">+</span>
+			</li>
+			<li id = "f-price">5999</li>
+			<li id = "delete1" class = "delete">删除</li>
+		</ul>
+	</div>
+	<div class = "sum">
+		<input type="checkbox" class = "checkall">
+		<span>全选</span>
+		<span class = "sum-delete" id = "sum-delete">删除</span>
+		<span>已选商品</span><span class = "selected-goods" id = "seleted-goods">0</span><span>件</span><span id = "hider">^</span>
+		<span class = "total">合计：</span><span class = "total-money" id = "total-money">000</span>
+		<input type="button" value = "结 算" id = "settle">
+		<div id = "hide">
+			
+		</div>
+	</div>
+	
+	<script>
+		$(function () {
+			$('.i-fram1').click(function () {
+				var price = 0,sum = 0;
+				if(this.checked) {
+					// price += $('ul li:eq(4)').text();
+					// sum += $('.count').val();
+					alert($('ul li:eq(4)').text())
+				}
+			});
+		// console.log($('.i-farm1'));
+		})
+	</script>
+</body>
+</html>
