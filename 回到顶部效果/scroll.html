@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "jquery-1.11.2.js"></script>
+	<style>
+		body {
+			width:1349px;
+			margin:0 auto;
+		}
+		.image {
+			text-align:center;
+		}
+		.image a{
+			position:fixed;
+			left:50%;
+			margin-left:610px;
+			bottom:10px;
+			/*display:none;*/
+			width:40px;
+			height:40px;
+			background:url(images/top_bg.png) no-repeat;
+			transition:0.3s;
+			
+		}
+		.image a:hover {
+			background:url(images/top_bg.png) -40px -40px;
+		}
+	</style>
+</head>
+<body>
+	<div class = "image">
+		<img src="images/tb_bg.jpg" alt="image">
+		<a href="javascript:;" id = "btn"></a>
+	</div>
+	<script>
+		var btn = document.getElementById('btn'),
+			timer = null,
+			stop = true,
+			clientHeight = document.documentElement.clientHeight;
+
+		window.onscroll = function () {
+			var pos = document.documentElement.scrollTop || document.body.scrollTop;
+			//显示时必须添加到鼠标滚动时；
+			if(pos >= clientHeight){
+					btn.style.display = "block";
+				}else{
+					btn.style.display = "none";
+				}
+
+			if(!stop){
+				clearInterval(timer);
+			}
+			stop = false;
+		}
+
+		btn.onclick = function () {
+			timer = setInterval(function () {
+				var pos = document.documentElement.scrollTop || document.body.scrollTop,
+					speed = Math.floor(-pos/6);
+
+				stop = true;
+				if(pos == 0){
+					clearInterval(timer);
+				}
+
+				document.documentElement.scrollTop = document.body.scrollTop = pos + speed;
+			},30);
+		}
+		/*$(function () {
+			var btn = $('#btn');
+			var pos = $(document).scrollTop(),
+					speed = Math.floor(pos/6);
+			btn.click(function () {
+				
+				
+			}).animate({
+				pos : pos - speed
+			},30);
+		})*/
+	</script>
+</body>
+</html>
