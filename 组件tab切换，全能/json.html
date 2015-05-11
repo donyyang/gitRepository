@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<style>
+		#bar2 li{
+			list-style:none;
+			display:inline-block;
+			padding:10px 10px;
+			border:1px solid blue;
+			cursor:pointer;
+		}
+		.ac {
+			background:red;
+		}
+		#content1 div {
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<ul id = "bar2">
+		<li class = "ac">sdf</li>
+		<li>sdf</li>
+		<li>sdf</li>
+	</ul>
+	<div id = "content1">
+		<div style = "display:block;">sdfasdf</div>
+		<div>威威</div>
+		<div>s说说sdf</div>
+	</div>
+	
+	<script>
+
+		/*function TabBar(cfgData) {
+			var self = this;
+
+			self.rendNode = cfgData.renderNode;
+			self.actClass = cfgData.actClass;
+			self.isMouseover = cfgData.actbind;
+			self.cont = cfgData.elecont;
+			self.init();
+
+			if(self.isMouseover === '' || self.isMouseover === 'onclick'){
+				self.nodeclick();
+			}else{
+				self.nodeMouseover();
+			}
+		}
+
+		TabBar.prototype.init = function () {
+			var self = this;
+
+			self.bar = document.getElementById(self.rendNode);
+			self.barchild =self.bar.children;
+
+			// self.contone = document.getElementById(self.cont);
+
+			alert(self.bar);
+
+			
+		}
+
+		TabBar.prototype.nodeclick = function () {
+
+			var self = this;
+
+			for(var i=0,len=self.barchild.length;i<len;i++){
+				self.barchild[i].onclick = function () {
+				// 	for(var j=0;j<len;j++){
+				// 		self.barchild[j].className = '';
+				// 	}
+				// 	this.className = self.actClass;
+				self.nodeattr(this);
+				}
+				
+			}
+		}
+
+		TabBar.prototype.nodeMouseover = function () {
+
+			var self = this;
+
+			for(var i=0,len=self.barchild.length;i<len;i++){
+				self.barchild[i].onmouseover = function () {
+				 	for(var j=0;j<len;j++){
+						self.barchild[j].className = '';
+				 	}
+				 	this.className = self.actClass;
+				self.nodeattr(this);
+				}
+				
+			} 
+		}
+
+		TabBar.prototype.nodeattr = function (Node) {
+
+			var self = this;
+
+			for(var j=0,len = self.barchild.length;j<len;j++){
+					self.barchild[j].className = '';
+				}
+					Node.className = self.actClass;	
+		}*/
+		function Tabbar(crgData) {
+			var self = this;
+			//self是全局变量，所以有时候console.log是找不到
+			self.renderNode = crgData.renderNode;
+			self.actClass = crgData.actClass;
+			self.eventtrigger = crgData.eventtrigger;
+			self.content = crgData.content;
+
+			self.init();
+		}
+
+		Tabbar.prototype.init = function () {
+
+			var self = this;
+
+			self.bar = document.getElementById(self.renderNode);
+			self.barchild = self.bar.children;
+
+			self.cont = document.getElementById(self.content);
+			self.contchild = self.cont.children;
+			
+			if(self.eventtrigger === '' || self.eventtrigger === 'click'){
+				self.click();
+			}else{
+				self.mouseover();
+			}
+		}
+		Tabbar.prototype.click = function () {
+			var self = this;
+
+			for(var i = 0,len = self.barchild.length;i < len;i++){
+				self.barchild[i].index = i;//这里是barchild[i]而不是content[i]
+				self.barchild[i].onclick = function () {
+					// for(var j = 0;j < len;j++){
+					// 	self.barchild[j].className = '';
+					// }
+					// this.className = self.actClass;
+					self.allevent(this);
+					self.contevent(this.index);
+				}
+			}
+		}
+		Tabbar.prototype.mouseover = function () {
+			var self = this;
+
+
+			for(var i = 0,len = self.barchild.length;i < len;i++){
+				self.barchild[i].index = i;
+				self.barchild[i].onmouseover = function () {
+					// for(var j = 0;j < len;j++){
+					// 	self.barchild[j].className = '';
+					// }
+					// this.className = self.actClass;
+					self.allevent(this);
+					self.contevent(this.index);
+				}
+			}
+		}
+		//将重复的代码封装
+		Tabbar.prototype.allevent = function (Node) {
+
+			var self = this;
+
+			for(var j = 0,len = self.barchild.length;j < len;j++){
+				self.barchild[j].className = '';
+			}
+			Node.className = self.actClass;
+		}
+		Tabbar.prototype.contevent = function (index) {
+			var self = this;
+
+			for(var i = 0,len = self.contchild.length;i < len;i++){
+				self.contchild[i].style.display = 'none';
+			}
+			self.contchild[index].style.display = 'block';
+		}
+	</script>
+	
+	<script>
+	var crgData = {
+		renderNode : 'bar2',
+		actClass : 'ac',
+		eventtrigger : 'click',
+		content : 'content1'
+	};
+
+	new Tabbar(crgData);
+	
+	</script>
+</body>
+</html>
