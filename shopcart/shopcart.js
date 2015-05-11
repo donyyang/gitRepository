@@ -152,7 +152,7 @@
 		} 
 	}
 }*/
-/*window.onload = function () {
+window.onload = function () {
 	if(!document.getElementsByClassName){
 		var rec = '';
 		var strHtml = document.getElementsByTagName('*');
@@ -318,5 +318,5 @@
 		}
 	}
 
-}*/
+}
 
