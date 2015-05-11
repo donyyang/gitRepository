@@ -1,0 +1,102 @@
+1:<meta name = "viewport" content = "width=device-width,initial-scale = 1">
+适应屏幕大小。
+
+2:<meta http-equiv = "X-UA-Compatible" content = "IE-edge,chrom = 1">
+<!--http-equiv="X-UA-Compatible"这个是IE8的专用标记，
+是用来指定Internet Explorer 8 浏览器模拟某个特定版本IE浏览器的渲染方式，
+以此来解决IE浏览器的兼容问题。 这段是Google开发的
+一个Google Chrome Frame「Google Chrome 浏览器内嵌框架 - GCF」。
+使用GCF可以让用户的IE浏览器外观不变，但用户在浏览网页时实际
+上使用的是Chrome的内核，并且支持Windows XP及以上系统的IE6/7/8-->
+
+3:<section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其
+他部分。
+<section>
+  <h1>PRC</h1>
+  <p>The People's Republic of China was born in 1949...</p>
+</section>
+
+4:font-smoothing:设置字体的抗锯齿和光滑度的属性；多用在英文字体上
+  font-smoothing:subpixel-antialiased | none | antialiased
+  none 用于小像素的文本，subpixel-antialiased浏览器默认的，antialiased反锯齿
+
+5：隐藏元素的方法：
+   display:none;   position:absolute;top:-9999px;   visibility:hidden;  
+   opacity:0;  
+  Display:none;  虽然隐藏了，但还占位
+  opacity:0  Visibility:hidden;不占位;
+
+6:text-shadow:设置到文字上，box-shadow:设置到盒子上
+
+7：backface-visibility:设置当元素不面向屏幕时是否可见。
+   visible是可见的，hidden是不可见
+
+8：font-face:引用字体样式。
+   @font-face {
+	font-family:
+	scr:url(),
+	    url(),
+	font-weight:normal\bold
+	font-style:normal\ \ \ 
+}
+@font-face{
+	font-family:Raphaelicons;
+	scr:url("fonts/raphaelicons-webfont.eot") format("eot"),
+		url("fonts/raphaelicons-webfont.svg") format("svg"),
+		url("fonts/raphaelicons-webfont.ttf") format("true-type"),
+		url("fonts/raphaelicons-webfont.woff") format("woff");
+	font-weight:normal;
+	font-style:normal;
+}
+
+9:属性选择器的用法：
+例如：data-icon    
+[data-icon]:after {
+	Content:attr(data-icon);
+}在属性后面插入内容，内容是data-icon里面的值；
+content:里面可写url()引用的，自己写的，attr();
+
+10:input:checked的意思是当input被点击时，所给的样式，input:checked + a {}
+是给被点击的input 后面的a提供样式。~是所有的a ，没有强调紧跟在后面的。+是后面的一个a，
+强调紧跟在后面的;   但是两个都是兄弟元素，如果是子元素或者其他必须加上兄弟元素，层层递进
+
+11:input:checked + a:after {
+	content:"";//将其后面插入的内容设为空；
+	border:20px solid transparent;
+	Border-bottom-color:red;//先将border的颜色都设置为透明，再将下面的颜色设置为红色。这样就变成了朝上的三角形
+	Position:absolute;
+	Bottom:100%;
+	Left:50%;
+	Margin-left:20px;//因为border本身具有宽度，所以将其margin的值左移其本身一半的宽度。陈好让其居中。
+}
+
+12:另一种实现三角形的方法：将正方形旋转，隐藏另一半;
+    div	{
+		width:200px;
+		height:200px;
+		background:#fff;
+		position:absolute;
+		left:50%;
+		margin-left:-100px;
+		// top:-100px;
+		// @include transform(rotate(45deg));
+		top:0;
+		@include transform(translateY(-50%) rotate(45deg));
+	}
+
+13:响应式布局的格式：
+@media screen and (max-width:520px) {
+   
+    当屏幕宽度大于小于520px的样式
+}
+   
+
+
+
+
+
+
+
+
+
+
