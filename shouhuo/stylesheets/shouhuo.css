@@ -1,0 +1,227 @@
+/* line 5, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, E:/ruby/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/shouhuo.scss */
+* {
+  marign: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* line 7, ../sass/shouhuo.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* line 10, ../sass/shouhuo.scss */
+.clearfix:after, .clearfix:before {
+  content: '';
+  line-height: 0;
+  display: table;
+}
+
+/* line 15, ../sass/shouhuo.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 19, ../sass/shouhuo.scss */
+#vender {
+  width: 1000px;
+  margin: 0 auto;
+  border: 3px solid black;
+}
+
+/* line 24, ../sass/shouhuo.scss */
+#coin-aera {
+  float: left;
+  width: 300px;
+  border: 1px solid red;
+  position: relative;
+  padding: 20px;
+}
+
+/* line 31, ../sass/shouhuo.scss */
+#show {
+  width: 200px;
+  margin: 0 auto;
+  border: 2px solid blue;
+}
+/* line 35, ../sass/shouhuo.scss */
+#show .show-money {
+  display: block;
+  font-size: 26px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+/* line 42, ../sass/shouhuo.scss */
+#show .show-time {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* line 49, ../sass/shouhuo.scss */
+#money-kinds {
+  width: 150px;
+  border: 2px solid blue;
+  text-align: center;
+  margin-top: 30px;
+}
+/* line 55, ../sass/shouhuo.scss */
+#money-kinds span {
+  display: inline-block;
+  width: 40px;
+  margin: 5px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+/* line 65, ../sass/shouhuo.scss */
+#coin {
+  position: absolute;
+  top: 110px;
+  left: 200px;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid gray;
+}
+
+/* line 77, ../sass/shouhuo.scss */
+.get-money {
+  width: 120px;
+  border: 1px solid red;
+  margin-left: 150px;
+  padding: 10px;
+}
+/* line 82, ../sass/shouhuo.scss */
+.get-money span {
+  color: red;
+  font-weight: bold;
+}
+
+/* line 87, ../sass/shouhuo.scss */
+#buy-area {
+  float: left;
+  width: 402px;
+  padding: 30px 40px;
+  border: 1px solid blue;
+}
+/* line 92, ../sass/shouhuo.scss */
+#buy-area a {
+  display: block;
+  float: left;
+  width: 60px;
+  margin: 0 10px;
+}
+/* line 97, ../sass/shouhuo.scss */
+#buy-area a img {
+  width: 60px;
+  height: 60px;
+}
+
+/* line 103, ../sass/shouhuo.scss */
+.price {
+  display: block;
+  width: 60px;
+  text-align: center;
+}
+
+/* line 108, ../sass/shouhuo.scss */
+.buy {
+  display: block;
+  width: 60px;
+  padding: 5px;
+  border: 1px solid red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* line 117, ../sass/shouhuo.scss */
+#get-aera {
+  float: left;
+  width: 1000px;
+  height: 60px;
+  border: 1px solid green;
+}
+/* line 122, ../sass/shouhuo.scss */
+#get-aera img {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+}

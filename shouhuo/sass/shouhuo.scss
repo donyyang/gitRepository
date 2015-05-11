@@ -1,0 +1,128 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+*{marign:0;border:0;padding:0;
+	box-sizing:border-box;text-decoration:none;list-style:none;}
+
+.clearfix {
+	*zoom:1;
+}
+.clearfix:after,.clearfix:before {
+	content:'';
+	line-height:0;
+	display:table;
+}
+.clearfix:after {
+	clear:both;
+}
+
+#vender {
+	width:1000px;
+	margin:0 auto;
+	border:3px solid black;
+}
+#coin-aera {
+	float:left;
+	width:300px;
+	border:1px solid red;
+	position:relative;
+	padding:20px;
+}
+#show {
+	width:200px;
+	margin:0 auto;
+	border:2px solid blue;
+	.show-money{
+		display:block;
+		font-size:26px;
+		color:red;
+		text-align:center;
+		font-weight:bold;
+	}
+	.show-time {
+		display:block;
+		text-align:center;
+		font-size:18px;
+		font-weight:bold;
+	}
+}
+#money-kinds {
+	width:150px;
+	border:2px solid blue;
+	text-align:center;
+	margin-top:30px;
+	// float:left;
+	span {
+		display:inline-block;
+		width:40px;
+		margin:5px;
+		font-weight:bold;
+		text-align:center;
+		border:1px solid red;
+		cursor:pointer;
+	}
+}
+#coin {
+	position:absolute;
+	top:110px;
+	left:200px;
+	width:50px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+	border:1px solid gray;
+}
+.get-money {
+	width:120px;
+	border:1px solid red;
+	margin-left:150px;
+	padding:10px;
+	span {
+		color:red;
+		font-weight:bold;
+	}
+}
+#buy-area {
+	float:left;
+	width:402px;
+	padding:30px 40px;
+	border:1px solid blue;
+	a {
+		display:block;
+		float:left;
+		width:60px;
+		margin:0 10px;
+		img {
+			width:60px;
+			height:60px;
+		} 
+	}
+}
+.price {
+	display:block;
+	width:60px;
+	text-align:center;
+}
+.buy {
+	display:block;
+	width:60px;
+	padding:5px;
+	border:1px solid red; 
+	text-align:center;
+	font-weight:bold;
+	font-size:16px;
+}
+#get-aera {
+	float:left;
+	width:1000px;
+	height:60px;
+	border:1px solid green;
+	img {
+		display:inline-block;
+		width:60px;
+		height:60px;
+		margin:0 10px;
+	}
+}
