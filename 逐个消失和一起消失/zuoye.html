@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/zuoye.css">
+</head>
+<body>
+	<div id = "text1">
+	 <h4>the first</h4>
+		<p>第一段</p>
+		<p>第二段</p>
+		<p>第三段</p>
+		<p>第四段</p>
+	</div>
+	<input type="button" id = "btn1" value ="&gt &gt">
+	<input type="button" id = "btn2" value ="&gt &gt &gt &gt">
+	<div id = "text2">
+		<h4>the second</h4>
+	</div>
+
+	<script>
+		var text1 = document.getElementById('text1'),
+			text2 = document.getElementById('text2'),
+			btn1 = document.getElementById('btn1'),
+			btn2 = document.getElementById('btn2');
+			para = text1.getElementsByTagName('p');
+
+		btn2.onclick = function () {
+			var htmlstr = '';
+			for(var i = 0,len =para.length;i<len;i++){
+				htmlstr += '<p>'+para[i].innerHTML+'</p>';
+				text2.innerHTML = '<h4>the second</h4>' + htmlstr;
+			}
+			text1.innerHTML = '<h4>the first</h4>';
+		}
+
+		btn1.onclick = function () {
+			if(para.length > 0 ) {
+				var newp = document.createElement('p');
+				text2.appendChild(newp);
+				var test = document.createTextNode(para[0].innerHTML);
+				newp.appendChild(test);
+				text1.removeChild(para[0]);
+			}
+		}//好好看看，自己做了好久，，，，算是懵出来的
+
+		/*btn2.onclick = function () {
+			for(var i = 0,len =para.length;i<len;i++) {
+				var newp = document.createElement('p');
+				text2.appendChild(newp);
+				var test = document.createTextNode(para[i].innerHTML);
+				newp.appendChild(test);
+
+			}
+			text1.removeChild(para[0]);
+		}*/
+	</script>
+</body>
+</html>
