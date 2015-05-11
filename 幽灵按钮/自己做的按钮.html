@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "jquery-1.11.2.js"></script>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+	<style>
+		.cont {
+			position:relative;
+			width:700px;
+			height:400px;
+			margin:100px;
+			background:#3D3D3D;
+		}
+		img {
+			width:160px;
+			height:120px;
+			transition:0.5s;
+		}
+		img:hover {
+			transform:rotate(360deg) scale(1.2);
+		}
+		.f a {
+			position:relative;
+			display:inline-block;
+			width:100px;
+			height:30px;
+			border:3px solid rgba(255,255,255,0.7);
+			margin-left:10px;
+			line-height:30px;
+			margin-left:40px;
+			text-decoration:none;
+			color:#3CB371;
+			padding-left:10px;
+			transition:0.3s;   /*过度是箭头才能缓慢移动*/
+			background:url(images/allow.png) no-repeat 70px center;/*背景图片居中可以设置为center*/
+
+		}
+		.f a:hover {
+			/*border:3px solid rgba(255,255,255,1);*/
+			background-position:75px center;
+		}
+		.line {
+			position:absolute;
+			background:#fff;
+			transition:0.3s;
+		}
+		.line1 {
+			left:-50%;
+			top:-3px;
+			width:0;
+			height:3px;
+		}
+		a:hover .line1{
+			width:110px;
+			left:-3px;
+		}
+		.line2 {
+			top:-150%;
+			width:3px;
+			height:0;
+			left:110px;
+		}
+		a:hover .line2 {
+			top:-3px;
+			height:35px;
+		}
+		.line3 {
+			left:150%;
+			height:3px;
+			width:0;
+			top:30px;
+		}
+		a:hover .line3 {
+			width:110px;
+			left:0px;
+		}
+		.line4 {
+			top:200%;
+			height:0;
+			width:3px;
+			left:-3px;
+		}
+		a:hover .line4 {
+			top:0px;
+			height:30px;
+		}
+		.ad p{
+			position:absolute;
+			top:65px;
+			display:inline;
+			padding:5px 3px;
+			background:#3CB371;
+			color:#fff;
+			/*display:none;*/
+			/*opacity:0;
+			transition:0.3s;*/
+		}
+		.btn1-intro {
+			left:305px;
+		}
+		.btn2-intro {
+			left:155px;
+		}
+		.btn3-intro {
+			left:0;
+		}
+		/*.ad p:hover{
+			opacity:1;
+			top:70px;
+		}*/
+		.ad p span {
+			position:absolute;
+			left:90px;
+			top:26px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 8px 4px 0 4px;
+			border-color: #3CB371 transparent transparent transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class = "cont">
+		<img src="images/mission.png" alt="first">
+		<img src="images/play.png" alt="first">
+		<img src="images/touch.png" alt="first">
+		<div class = "f" id = "f">
+			<a href="#" class = "btn1">
+				<span class = "line line1"></span>
+				<span class = "line line2"></span>
+				<span class = "line line3"></span>
+				<span class = "line line4"></span>
+			MISSION</a>
+			<a href="#" class = "btn2">
+				<span class = "line line1"></span>
+				<span class = "line line2"></span>
+				<span class = "line line3"></span>
+				<span class = "line line4"></span>
+			PLAY</a>
+			<a href="#" class = "btn3">
+				<span class = "line line1"></span>
+				<span class = "line line2"></span>
+				<span class = "line line3"></span>
+				<span class = "line line4"></span>
+			TOUCH</a>	
+		</div>
+		<div class = "ad" id = "ad">
+			<p class = "btn3-intro">this is my mission is clear <span></span></p>
+			<p class = "btn2-intro">this is my playground<span></span></p>
+			<p class = "btn1-intro">this is my playground demo <span></span></p>
+		</div>
+	</div>
+	<script>
+		var btn = document.getElementById('f').getElementsByTagName('a'),
+			ad = document.getElementById('ad').getElementsByTagName('p'),
+			len = btn.length;
+
+		for(var i = 0; i < len; i++){
+			btn[i].id = i;
+
+			btn[i].onmouseover = function () {
+				for(var j = 0; j < len;j++) {
+					ad[j].style.display = "none";
+				}
+				ad[this.id].style.display = "block";
+			}
+			btn[i].onmouseout = function () {
+				ad[this.id].style.display = "none";
+			}
+		}
+		$(function () {
+			var btn = $('.f a'), ad = $('.ad p');
+			ad.hide();
+			btn.mouseover(function () {
+				ad.eq($(this).index()).fadeIn('slow');
+			});
+			btn.mouseout(function () {
+				ad.eq($(this).index()).fadeOut('slow');
+			});
+		})
+		KISSY.use('node,event',function (S,Node,Event) {
+			var $ = S.all, event = S.Event, ad = $('.ad p'), btn = $('.f a');
+
+			ad.hide();
+
+			btn.on('mouseenter',function () {
+				ad.item($(this).index()).fadeIn();
+			})
+			btn.on('mouseleave',function () {
+				ad.item($(this).index()).fadeOut();
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "jquery-1.11.2.js"></script>
+	
+	<style>
+		.cont {
+			position:relative;
+			width:700px;
+			height:400px;
+			margin:100px;
+			background:#3D3D3D;
+			padding-left:40px;
+		}
+		.link {
+			display:inline-block;
+			width:205px;
+			height:280px;
+			/*border:1px solid blue; */
+		}
+		.btn1 {
+			position:relative;
+			display:block;
+			width:130px;
+			height:40px;
+			margin-left:30px;
+			padding-left:10px;
+			color:#3CB371;
+			text-decoration:none;
+			line-height:40px;
+			transition:0.3s;
+			border:2px solid rgba(255,255,255,0.7);
+			background:url(images/allow.png) no-repeat 100px center;/*在背景中添加图片，图片初始位置在左上角，并且可以设置图片居中*/
+		}
+		.btn1:hover {
+			border:2px solid rgba(250,250,250,1);
+			background-position:110px;
+		}
+		.line {
+			position:absolute;
+			transition:0.3s;
+			background:#fff;
+
+		}
+		.line-top {
+			left:-50%;
+			top:-2px;
+			height:2px;
+			width:0;
+		}
+		.btn1:hover .line-top{
+			left:-2px;
+			width:140px;
+		}
+		.line-left {
+			top:-50px;
+			left:140px;
+			height:0;
+			width:2px;
+		}
+		.btn1:hover .line-left {
+			top:-2px;
+			height:40px;
+		}
+		.line-bottom {
+			left:150%;
+			width:0;
+			top:40px;
+			height:2px;
+		}
+		.btn1:hover .line-bottom {
+			left:-2px;
+			width:140px;
+		}
+		.line-right {
+			width:2px;
+			height:0;
+			left:-2px;
+			top:150%;
+		}
+		.btn1:hover .line-right {
+			top:0;
+			height:40px;
+		}
+		.icon {
+			display:inline-block;
+			width:205px;
+			height:190px;
+			transition:0.3s;
+		}
+		.icon:hover {
+			transform:rotate(360deg) scale(1.2);
+		}
+		.ficon {
+			background:url(images/mission.png) no-repeat center center;
+		}
+		.sicon {
+			background:url(images/play.png) no-repeat center center;
+		}
+		.ticon {
+			background:url(images/touch.png) no-repeat center center;
+		}
+		.tip span{
+			position:absolute;
+			left:40px;
+			top:130px;
+			background:#3CB371;
+			/*height:30px;
+			line-height:30px;*/
+			padding:5px 10px;
+			opacity:0;
+			/*transition:0.3s;*/
+		}
+		
+	</style>
+</head>
+<body>
+	<div class = "cont">
+
+		<div class = "link link-one">
+			<span class = 'icon ficon'></span>	
+		<a href="#" class = "btn1" data = "my mission is clear">
+				<span class = "line line-top"></span>
+				<span class = "line line-right"></span>
+				<span class = "line line-bottom"></span>
+				<span class = "line line-left"></span>
+			MISSION</a>
+		</div>
+			
+			<div class="link link-two">
+				<span class = 'icon sicon'></span>
+			<a href="#" class = "btn1" data = "this is my palyground">
+				<span class = "line line-top"></span>
+				<span class = "line line-right"></span>
+				<span class = "line line-bottom"></span>
+				<span class = "line line-left"></span>
+			PLAY</a>
+			</div>
+
+			<div class="link link-thiree">
+				<span class = 'icon ticon'></span>
+			<a href="#" class = "btn1" data = "this is my playground demo">
+				<span class = "line line-top"></span>
+				<span class = "line line-right"></span>
+				<span class = "line line-bottom"></span>
+				<span class = "line line-left"></span>
+			OUTHER</a>
+			</div>
+			<div class = "tip"><span></span></div>
+	</div>
+	<script>
+		$(function () {
+			var tip = $('.tip span');
+			$('.link a').hover(function () {
+				var title = $(this).attr('data');
+				var pos = $(this).position().left;//获取this距离已定位父级的距离；
+				// var dis = ($(tip).outerWidth() - $(this).outerWidth())/2;outerWidth()方法包括padding的值。而width不包括padding的值。
+				// var l = pos - dis;
+					$(tip).html(title).css('left',pos + 'px').stop().animate({
+					'opacity':1,
+					'top':150 + 'px'
+				},300)
+			},function () {
+				$(tip).stop().animate({
+					'opacity':0,
+					'top':130 + 'px'
+				},300);
+			})
+		})
+	</script>
+</body>
+</html>
