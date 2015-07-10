@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "allsport.js"></script>
+
+	<style>
+		#lianshi {
+			margin:50px;
+			width:200px;
+			height:100px;
+			border:4px solid #000;
+			background:#666;
+		}
+	</style>
+</head>
+<body>
+	<div id = "lianshi">
+
+	</div>
+<script>
+	
+	var lianshi = document.getElementById("lianshi");
+		
+	lianshi.onmouseover = function () {
+		//不能用this，因为到第二函数就变成window对象了
+		startMoves(lianshi,"width",400,function () {
+			startMoves(lianshi,"height",200,function () {
+				startMoves(lianshi,"opacity",30);
+			})
+		})
+	}
+	lianshi.onmouseout = function () {
+		startMoves(lianshi,"opacity",100,function () {
+			startMoves(lianshi,"height",100,function () {
+				startMoves(lianshi,"width",200);
+			})
+		})
+	}
+	</script>
+</body>
+</html>

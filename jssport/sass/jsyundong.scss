@@ -1,0 +1,57 @@
+@import "compass/css3";
+// @import "compass/reset";
+
+*{margin:0;border:0;padding:0;list-style:none}
+
+#sport {
+	width:100%;
+	height:100px;
+	margin-top:100px;
+	@include transition(2s);
+}
+#hide {
+	position:relative;
+	left:-100px;
+	background:#ff0000;
+	width:100px;
+	height:100px;
+	
+}
+#share {
+	position:absolute;
+	top:30px;
+	left:100%;
+	width:20%;
+	cursor:pointer;
+	background:#0000ff;
+	height:40px;
+	text-align:center;
+}
+
+#opas {
+	width:200px;
+	height:200px;
+	background:#4a86e8;
+	margin-left:100px;
+}
+
+#three {
+	li {
+		margin:50px;
+		width:200px;
+		height:100px;
+		background:#666;
+		@include opacity(1);
+	}
+}
+
+#addBorder {
+	li {
+		margin:50px;
+		width:200px;
+		height:100px;
+		border:4px solid #000;
+		background:#666;
+		@include opacity(1);
+	}
+}

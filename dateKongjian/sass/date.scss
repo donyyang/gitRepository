@@ -1,0 +1,142 @@
+
+// #backDate {
+// 	margin:130px;
+// 	background:url(../images/o_nextprv.png) no-repeat right -21px;
+// 	text-align:center;
+// }
+// .preYear,.nextYear, .preMonth,.nextMonth{
+// 	cursor:pointer;
+// 	height:9px; 
+// 	background:url(../images/o_nextprv.png) no-repeat; 
+// 	overflow:hidden;
+// 	position:absolute; 
+// 	top:8px;
+// 	text-indent:-999px;
+// }
+// .preYear{  left:4px;  width:9px;}
+// .preMonth{ width:5px; background-position:-9px 0; left:20px;}
+// .nextYear{  width:9px; background-position:-19px 0; right:5px;}
+// .nextMonth{ width:5px; background-position:-14px 0; right:20px;}
+
+// .contFrame {
+// 	border:1px solid #ccc;
+// 	width:190px;
+// 	padding:10px;
+	// dt {
+	// 	float:left;
+	// 	width:25px;
+	// 	text-align:center;
+	// 	height:20px;
+	// }
+	// .titleDate {
+	// 	width:100%;
+	// 	height:20px;
+	// 	display:block;
+	// 	border-bottom:1px solid #E4E4E4; 
+	// 	font-weight:700; 
+	// 	position:relative; 
+	// 	// margin-bottom:5px; 
+	// 	// padding-bottom:3px;
+	// }
+// 	dd {
+// 		clear:both;
+// 		width: 200px;
+// 		height: 139px;
+// 		margin-left:0;
+// 	}
+// 	a {
+// 		float:left;
+// 		width: 25px;
+// 		height: 22px; 
+// 		border:1px solid #999;
+// 		color:blue; 
+// 		overflow:hidden; 
+// 		text-decoration: none;
+//         margin: 1px 0 0 1px; 
+//         text-align:center;
+// 	}
+// 	.disabled {
+// 		color:#999;
+// 	}
+// 	.live {
+// 		cursor:pointer;
+// 	}
+// 	.today {
+// 		color:red;
+// 	}
+// 	.on {
+// 		color:blue;
+// 	}
+//  .addShow {
+// 	background:blue;
+// 	color:#fff;
+//  }
+// }
+
+#backDate {
+	margin:200px;
+}
+
+.preYear,.preMonth,.nextMonth,.nextYear {
+	position:absolute;
+	text-indent:-999px;
+	overflow:hidden;
+	margin-top:5px;
+	background:url(../images/o_nextprv.png) no-repeat;
+}
+
+.preYear{  left:4px;  width:9px;}
+.preMonth{ width:5px; background-position:-9px 0; left:20px;}
+.nextYear{  width:9px; background-position:-19px 0; right:5px;}
+.nextMonth{ width:5px; background-position:-14px 0; right:20px;}
+
+.contFrame {
+	width:200px;
+	border:1px solid #999;
+	padding:10px;
+	dt {
+		float:left;
+		width:25px;
+		height:20px;
+		text-align:center;
+	}
+	.titleDate {
+		display:block;
+		width:100%;
+		height:20px;
+		line-hieght:20px;
+		border-bottom:1px solid #ccc;
+	}
+	dd {
+		margin-left:0;
+		a {
+			display:inline-block;
+			width:25px;
+			height:20px;
+			border:1px solid #ccc;
+		}
+		.addShow {
+			background:blue;
+		}
+	}
+}
+.live {
+	cursor:pointer;
+}
+.disabled {
+	color:#999;
+}
+
+.today {
+	color:red;
+}
+
+.on {
+	color:blue;
+}
+a {
+	display:inline-block;
+	width:25px;
+	height:25px;
+
+}

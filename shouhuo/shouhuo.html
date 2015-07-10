@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="stylesheets/shouhuo.css">
 	<script src = "shouhuo.js"></script>
+	<!-- // <script src = "jquery-1.11.2.js"></script> -->
 </head>
 <body>
 	<div id = "vender" class = "clearfix">
@@ -89,5 +90,132 @@
 			
 		</div>
 	</div>
+	<script>
+		/*$(function() {
+			var moneyKinds = $("#money-kinds span"),
+				showMoney = $(".show-money"),
+				buys = $(".buy"),
+				prices = $(".price"),
+				backMoney = $("#back-money"),
+				showTime = $(".show-time"),
+				getAera = $("#get-aera"),
+				timer = null;
+				// console.log(prices);
+
+			//获取屏幕累加值
+			moneyKinds.click(function () {
+				//清除动画，
+				clearInterval(timer);
+				auto(9);
+				
+				backMoney.html(0);
+				//获取点击的Money
+				var values = $(this).html();
+				//获取累加的money
+				var allMoney = parseFloat(values) + parseFloat(showMoney.html());
+				//将获取的传值
+				showMoney.html(allMoney);
+
+				//用each遍历才能获取全部的价格
+				$(prices).each(function () {
+					if(allMoney >= parseFloat($(this).html())) {
+						//用$(this).next()获得下一个元素
+						$(this).next().addClass("addColor");
+					}
+				})
+			});
+
+			//退币
+			$("#coin").click(function () {
+				//清除动画
+
+				clearInterval(timer);
+				auto(0);
+				
+				
+				// backMoney.html(showMoney.html());
+				// showMoney.html(0);
+				// //判断是否是蓝色，是的话移除
+				// if(buys.hasClass("addColor")){
+				// 	buys.removeClass("addColor");
+				// }
+				reset();
+				
+				getAera.get(0).innerHTML = "";
+			});
+
+			//封装函数
+
+			function reset() {
+				backMoney.html(showMoney.html());
+				showMoney.html(0);
+
+				//判断是否是蓝色，是的话移除
+				if(buys.hasClass("addColor")){
+					buys.removeClass("addColor");
+				}
+
+			}
+
+			//倒计时,
+			function auto(num) {
+				timer = setInterval(function () {
+					if(num >= 0) {
+						showTime.html(num--);
+					}
+					if(num < 0) {
+						// if(buys.hasClass("addColor")){
+						// 	buys.removeClass("addColor");
+						// }
+						// backMoney.html(showMoney.html());
+						// showMoney.html(0);
+						clearInterval(timer);
+						reset();
+
+					}
+				},1000)
+			}
+			//购买
+			// if(buys.hasClass("addColor")) {
+			// 	$(this).click(function () {
+			// 		alert("d");
+			// 	})
+			// }
+			buys.click(function () {
+
+				clearInterval(timer);
+				auto(9);
+				var src = "";
+				if($(this).hasClass("addColor")) {
+
+					//用Prev()获取相邻上边的节点
+					var buyPrice = $(this).prev().html();
+					var price = showMoney.html();
+
+					var afterPrice = parseFloat(price) - parseFloat(buyPrice);
+					showMoney.html(afterPrice);
+
+					//重新获取一遍屏幕上的值
+					$(prices).each(function () {
+					if(parseFloat(afterPrice) < parseFloat($(this).html())) {
+						//用$(this).next()获得下一个元素
+						$(this).next().removeClass("addColor");
+					}
+
+					var pics = $(this).prev().attr("src");
+					src = '<img src="'+pics+'">'
+					
+					})
+				//eq()返回的是一个对象，get()返回的是一个数组
+				getAera.get(0).innerHTML += src;
+				}else{
+					alert("金币不足");
+				}
+			});
+		})*/
+
+		
+
+	</script>
 </body>
 </html>

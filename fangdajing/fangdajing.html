@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/fangdajing.css">
+	<!-- // <script src = "fangdajing.js"></script> -->
+	<script src = "jquery-1.11.2.js"></script>
+</head>
+<body>
+	<div id = "demo">
+		<div id = "small-box">
+			<div id = "mark"></div>   <!--在IE中，当鼠标移动时，不仅在放大镜上移动，也在smallbox上移动，每次移动都触发onmouseover和onmouseout事件，所以加上一个mark隔层，将其隔开,样式中给其绝对定位，放在最上面一层；-->
+			<div id = "float-box"></div>
+			<img src="images/macbook-small.jpg" alt="">
+		</div>
+		<div id = "big-box">
+			<img src="images/macbook-big.jpg" alt="">
+		</div>
+	</div>
+	<div id = "pp" style = "width:400px;"></div>
+
+	<script>
+	(function ($) {
+		var demoBox = $("#demo");
+		var smallBox = $("#small-box");
+		var bigBox = $("#big-box");
+		var floatBox = $("#float-box");
+
+		var demoOffset = $("#demo").offset();
+		var smallOffset = $("#small-box").offset();
+		var floatOffset = $("#float-box").offset();
+		var images = $("#big-box img");
+		
+		smallBox.mouseover(function () {
+			bigBox.css({
+				display:"block"
+			});
+
+			floatBox.css({display : "block"});
+
+		}).mouseout(function () {
+				bigBox.css({
+					display:"none"
+				});
+
+				floatBox.css({display : "none"});
+
+			})
+		// jquery中获取相对于父级的位置坐标时用position().left/top,获取相对于屏幕的位置坐标时用Offset().left/top;obj.widh()可以作为数字直接相加减
+		smallBox.mousemove(function (e) {
+
+			// if($.browser.mise && $.browser.verson == "8.0"){
+			// 	var leftVal = e.pageX - demoOffset.left -smallOffset.left - floatBox.outerWidth()/2;
+			// 	var topVal = e.pageY - demoOffset.top - smallOffset.top - floatBox.outerHeight()/2;
+			// }else{
+				var leftVal = e.pageX - demoOffset.left - floatBox.outerWidth()/2;
+				var topVal = e.pageY - demoOffset.top - floatBox.outerHeight()/2;
+			// }
+
+			var boxW = smallBox.width() - floatBox.width();
+			var boxH = smallBox.height() - floatBox.height();
+
+			if(leftVal < 0) {
+				leftVal = 0;
+			}else if(leftVal > boxW) {
+				leftVal = boxW;
+			}
+
+			if(topVal < 0) {
+				topVal = 0;
+			}else if(topVal > boxH) {
+				topVal = boxH;
+			}
+
+			floatBox.css({
+				left: leftVal + "px",
+				top:topVal + "px"
+			})
+
+			var parentX = leftVal / (smallBox.outerWidth() - floatBox.outerWidth());
+			var parentY = topVal / (smallBox.outerHeight() - floatBox.outerHeight());
+
+			var imagesLeft = -parentX * (images.outerWidth() - bigBox.outerWidth());
+			var imagesTop = -parentY * (images.outerHeight() - bigBox.outerHeight());
+
+			images.css({
+				left:imagesLeft + "px",
+				top:imagesTop + "px"
+			})
+		})
+	})(jQuery)
+	</script>
+</body>
+</html>

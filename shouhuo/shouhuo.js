@@ -1,4 +1,5 @@
-window.onload = function () {
+// (function (window,undefined) {
+	window.onload = function () {
 	if(!document.getElementByClassName) {
 		document.getElementByClassName = function (cfg) {
 			var rec = [];
@@ -137,5 +138,5 @@ window.onload = function () {
 		},1000);
 	}
 	auto();
-
 }
+// })(window)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li {
+			width:200px;
+			height:150px;
+			border:2px solid #333;
+			background:#888;
+			list-style:none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li id = "frame"></li>
+	</ul>
+
+	<script>
+	var btn = document.getElementById("frame");
+
+		setInterval(function () {
+			//如果这样写，本来是减一的，宽度反而增加了。
+			//因为-1后width变为201,之后又加上了border的值，
+			//变为203了；所以一直增加。
+			btn.style.width = btn.offsetWidth - 1 + "px";
+
+			
+			
+		},100)
+
+		//有两种解决方法，一种是将其写成内联样式。一种是用
+			//封装好的getstyle.
+			setInterval(function () {
+				btn.style.width = parseInt(getStyle(btn,"width")) - 1 + "px";
+			})
+
+		function getStyle(obj,attr) {
+			//如果是IE，返回IE中可以用的
+			if(obj.currentStyle) {
+				return obj.currentStyle[attr];
+			}else {
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+
+	</script>
+</body>
+</html>
