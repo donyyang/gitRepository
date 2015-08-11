@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/dingwei.css">
+	<script src = "dingwei.js"></script>
+	<script src = "jquery-1.11.2.js"></script>
+</head> 
+<body>
+	<div id="cont" class = "clearfix">
+		<div id = "first" class = "common"></div>
+		<div id = "second" class = "common"></div>
+		<div id = "third" class = "common"></div>
+		<div id = "fourth" class = "common"></div>
+		<div id = "five" class = "common"></div>
+	</div>
+	<div id = "nav">
+		<ul id = "nav-cont">
+			<li><a href="#first" class = "addShow">第一楼</a></li>
+			<li><a href="#second">二楼</a></li>
+			<li><a href="#third">三楼</a></li>
+			<li><a href="#fourth">四楼</a></li>
+			<li><a href="#five">五楼</a></li>
+		</ul>
+	</div>
+</body>
+
+<script>
+
+	// $(function () {
+	// 	var conts = $("#cont").find("div"),
+	// 		navConts = $("#nav-cont"),
+	// 		currentId = "";
+
+	// 	$(window).scroll(function () {
+
+	// 		var pos = $(document).scrollTop();
+	// 		//获取当前的ID
+	// 		conts.each(function () {
+
+	// 			var contsTop = $(this).offset().top;
+	// 			//让contsTop稍微减些，这样不到当前楼层的时候
+	// 			//可以提前改变
+	// 			if(pos > contsTop - 200) {
+	// 				currentId = "#" + $(this).attr("id");
+	// 				// console.log(currentId);
+	// 			}else {
+	// 				return false;
+	// 			}
+	// 		});
+	// 		//找到当前有.addShow的a;
+	// 		// var currentLink = navConts.find(".addShow");
+	// 		var currentLink = navConts.find(".addShow");
+	// 		console.log(currentLink);
+	// 		//如果为空或者不等于当前的ID值，去掉addShow，然后找到
+	// 		//当前的ID值加上
+	// 		if(currentId && currentLink.attr("href") != currentId) {
+	// 			currentLink.removeClass("addShow");
+	// 			navConts.find("[href = "+currentId+"]").addClass("addShow");
+	// 		}
+	// 	})
+	// })
+
+</script>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		form {
+			width:70%;
+			margin:30px auto;
+			border:1px solid #333;
+		}
+		.user-name,.pasWord-name,.confir-passWord {
+			margin:20px 0;
+		}
+		input {
+			width:120px;
+			height:20px;
+			margin-left:-10px;
+		}
+		label {
+			display:inline-block;
+			width:90px;
+			text-align:right;
+			/*border:1px solid red;*/
+		}
+		.pasWord-name p {
+			margin:0 0 0 90px;
+		}
+		.pasWord-name p em {
+			display:inline-block;
+			font-size:13px;
+			color:#fff;
+			text-align:center;
+			width:40px;
+			height:15px;
+			background:#e69138;
+		}
+		#userTips {
+			margin:0 0 0 90px;
+			font-size:12px;
+			visibility:hidden;
+		}
+		.code input {
+			width:60px;
+		}
+		.agree a {
+			display:inline-block;
+			width:200px;
+			height:25px;
+			line-height:25px;
+			color:#fff;
+			text-decoration:none;
+			background:#e06666;
+			text-align:center;
+			margin: 20px 0 0 70px;
+
+		}
+
+		.pasWord-name p .addShow {
+			background:#cc4125;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class = "user-name">
+			<label for="user">会员名：</label>
+			<input id = "userName" type="text" name = "user">
+			<span id = "userMsg"></span>
+			<p id = "userTips"><span id = "num-str">0</span>个字符</p>
+		</div>
+		<div class = "pasWord-name">
+			<label for="pasWord">密码：</label>
+			<input id = "pasWord" type="text" name = "pasWord">
+			<span id = "pasWordMsg"></span>
+			<!-- <span id = "pasWirdTips"></span> -->
+			<p id = "passStrength"><em class = "addShow">弱</em><em>中</em><em>强</em></p>
+		</div>
+		<div class = "confir-passWord">
+			<label for="confir">确认密码：</label>
+			<input id = "conFir" type="text" name = "confir" disabled>
+			<span id = "conMsg"></span>
+			<!-- <span id = "pasWirdTips"></span> -->
+			<!-- <p><em>弱</em><em>中</em><em>强</em></p> -->
+		</div>
+		<div class = "code">
+			<label for="">验证码：</label>
+			<input type="text">
+		</div>
+
+		<div class = "agree">
+			<a href="javascript:;">同意并注册</a>
+		</div>
+	</form>
+
+<script>
+	function g(id) {
+		return typeof id === "string" ? document.getElementById(id) : id;
+	}
+	window.onload = function () {
+
+		var userName = g("userName"),
+			userMsg = g("userMsg"),
+			numStr = g("num-str"),
+			userTips = g("userTips"),
+			pasWord = g("pasWord"),
+			pasWordMsg = g("pasWordMsg"),
+			index = 6,
+			num = 4,
+			passStrength = g("passStrength").getElementsByTagName("em"),
+			conMsg = g("conMsg"),
+			conFir = g("conFir");
+
+		//用户名
+		function getCount(str) {
+			///[^\x000-\xfff]/g表示除了单个字符外的双字符
+			//用两个字符"xx"(可随便写"aa")代替双字符
+			//返回其长度
+			return str.replace(/[^\u00-\uff]/g,"xx").length;
+		}
+
+		userName.onfocus = function () {
+			userMsg.innerHTML = "5-25个字符，一个汉字为两个字符，推荐使用总问会员名";
+		}
+
+		userName.onkeyup = function () {
+			var len = getCount(this.value);
+
+			numStr.innerHTML = len;
+
+			if(numStr.innerHTML == 0) {
+				userTips.style.visibility = "hidden";
+			}else {
+				userTips.style.visibility = "visible";
+			}
+		}
+
+		userName.onblur = function () {
+			var re = /[^\wu4e00-\u9fae]/i;
+			var len = (this.value).length;
+
+			if(re.test(this.value)) {
+				userMsg.innerHTML = "含有非法字符";
+			}else if(len == 0) {
+				userMsg.innerHTML = "不能为空";
+			}else if(len < 5 || len > 15) {
+				userMsg.innerHTML = "字符个数在5-15之间";
+			}else {
+				userMsg.innerHTML = "";
+			}
+		}
+
+		//密码
+		//创建一个函数，传入两个参数：字符串，和一个字符
+		//遍历字符串，如果字符串的每个字母和n相等，num+1;
+		//返回Num;
+		//如果num = len;证明字符串都是同一个字母
+		function findStr(str,n) {
+			var offset = 0;
+			for (var i = 0,len = str.length; i < len; i++) {
+				if(str.charAt(i) == n) {
+					offset++;
+				}
+			}
+			return offset;
+		}
+		pasWord.onfocus = function () {
+			pasWordMsg.innerHTML = "6-16个字符组成，请使用字母加数字或符号组合密码，不能单独使用字母，数字或符号！"
+		}
+
+		pasWord.onkeyup = function () {
+			var len = (this.value).length;
+
+			//大于6时
+			if(len > index) {
+				conFir.removeAttribute("disabled");
+				passStrength[1].className = "addShow";
+			}else {
+				conFir.setAttribute("disabled","disabled");
+				passStrength[1].className = "";
+			}
+			//大于16时
+			if(len > index + num) {
+				passStrength[2].className = "addShow";
+			}else {
+				passStrength[2].className = "";
+			}
+		}
+
+		pasWord.onblur = function () {
+			var len = (this.value).length;
+			var m = findStr(this.value,this.value[0]);
+			//获得除数字以外的字符
+			var re_n = /[^\d]/g;  //注意要取反,相应的下面判断时也要取反
+			//获得除字母以外的字符
+			var re_t = /[^a-zA-Z]/g;
+
+			//密码不为空
+			if(len == 0) {
+				pasWordMsg.innerHTML = "密码不为空";
+			}
+			//密码在6-16之间
+			else if(len < 6 || len > 16) {
+				pasWordMsg.innerHTML = "密码在6-16之间";
+			}
+			//密码不能是同一个字符
+			else if(m == len) {
+				pasWordMsg.innerHTML = "密码不能是同一个字符";
+			}
+			//密码不能全是数字
+			else if(!re_n.test(this.value)) {
+				pasWordMsg.innerHTML = "密码不能全是数字";
+			}
+			//密码不能全是字母
+			else if(!re_t.test(this.value)) {
+				pasWordMsg.innerHTML = "密码不能全是字母";
+			}else {
+				pasWordMsg.innerHTML = "";
+			}
+		}
+
+		//确认密码
+		conFir.onfocus = function () {
+
+			conMsg.innerHTML = "";
+		}
+
+		conFir.onblur = function () {
+
+			if(this.value != pasWord.value) {
+				conMsg.innerHTML = "两次密码不一致";
+			}
+		
+		}
+	}
+</script>    
+</body>
+</html>

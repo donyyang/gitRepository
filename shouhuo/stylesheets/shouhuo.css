@@ -225,3 +225,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 60px;
   margin: 0 10px;
 }
+
+/* line 130, ../sass/shouhuo.scss */
+.addColor {
+  background: #0000ff;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/date.css">
+	<style>
+		.date div {
+			color:#999;
+			font-size:18px;
+		}
+		
+	</style>
+</head>
+<body>
+<div class = "date">
+	<div>简单的日期组件，原生组件脚本。其他作品在github里面</div>
+	<svg width = "200px" height = "200px">
+		<circle cx = "100" cy = "100" r = "90" style="stroke: #660000; fill: #39F" />
+		<circle cx = "70" cy = "80" r = "20" style="stroke: #000066;
+           fill: #fff;" />
+        <circle cx = "130" cy = "80" r = "20" style="stroke: #000066;
+           fill: #fff;" />
+        <circle cx = "65" cy = "75" r = "10" style="stroke: #000066;
+           fill: #333;" />
+        <circle cx = "125" cy = "75" r = "10" style="stroke:#000066; 	fill: #333;" />
+        <path d = "M 50 140 A 60 60 0 0 0 150 140 " style = "stroke:white; strlke-width:3; fill:none">
+	</svg>
+
+	<input type="text" id = "backDate" placeholder = "日期组件">
+</div>
+<script>
+ function removeClass(c,node) {
+ 	var reg = new RegExp("(^|\\s+)" + c + "(\\s+|$)","g");
+ 	node.className = node.className.replace(reg,'');
+ }
+
+ function addClass(c,node) {
+ 	node.className = node.className + ' ' + c;
+ }
+
+function stopPropagation(e) {
+	var e = e || window.event;
+
+	 e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+}
+
+window.onload = function () {
+	function Calendar() {
+		this.initialize.apply(this,arguments);
+	}
+
+	Calendar.prototype = {
+		constructor : Calendar,
+
+		_template : [
+			'<dl>',
+				'<dt class = "titleDate">',
+					'<span class = "preYear">preyear</span><span class = "preMonth">premouth</span>',
+					'<span class = "nextYear">nextyear</span><span class = "nextMonth">nextmonth</span>',
+				'</dt>',
+				'<dt><strong>日</strong></dt>',
+				'<dt>一</dt>',
+				'<dt>二</dt>',
+				'<dt>三</dt>',
+				'<dt>四</dt>',
+				'<dt>五</dt>',
+				'<dt><strong>六</strong></dt>',
+				'<dd class = "dd"></dd>',
+			'</dl>'
+		],
+
+		initialize : function (odate) {
+
+			this.id = odate.id;
+
+			var backDate = this.backDate = document.getElementById(odate.id);
+
+			this.inputEvent();
+		},
+		//创建一个日期的最外框
+		createContainer : function () {
+ 			
+			var	dateLeft = backDate.offsetLeft,
+				dateTop = backDate.offsetTop;
+
+			//判断是否有外框，有的话移除，这一步是当切换到其他月份和年份时，
+				//移除之前的，不然会重叠
+			var odiv = document.getElementById("container.id")
+			if(!!odiv) {
+				odiv.parentNode.removeChild(odiv);
+			}
+
+			var container = this.container = document.createElement("div");
+			container.id = this.id + "date";
+			container.style.position = "absolute";
+			container.style.zIndex = 10;
+
+			//将输入框的位置赋给建好的最外框
+			container.style.left = dateLeft + "px";
+			container.style.top = dateTop + "px";
+			//还没设置阻止冒泡
+
+			container.onclick = function () {
+				stopPropagation();
+			}
+			// consoloe.log(dateLeft);
+			document.body.appendChild(container);
+		},
+
+		drawDate: function (odate) {
+			var dateWrap,year,month,day,titleDate,textNode,dd,ddhtml = [],i;
+
+			var nowDate = new Date(),nowYear = nowDate.getFullYear(),
+				nowMonth = nowDate.getMonth()+1,nowDay = nowDate.getDate();
+
+			this.dateWrap = dateWrap = document.createElement("div");
+			//将_template赋给contFrame;
+			dateWrap.innerHTML = this._template.join("");
+			dateWrap.className = "contFrame";
+
+			//这是参数用的日期，当点击pre按钮时，会改变，如果变成date.get就不会改变了
+			this.year = year = odate.getFullYear();
+			this.month = month = odate.getMonth() + 1;
+			this.day = day = odate.getDate();
+
+			//加上日期头部
+			this.titleDate = titleDate = dateWrap.getElementsByClassName("titleDate")[0];
+			textNode = document.createTextNode(year + "年" + month + "月");
+			titleDate.appendChild(textNode);
+			//点击按钮事件
+			this.btnEvent();
+
+			this.dd = dd = dateWrap.getElementsByClassName("dd")[0];
+				//得到每月的天数
+			days = new Date(year,month,0).getDate();
+			//得到每月开始是星期几
+			weekStart = new Date(year,month - 1,1).getDay();
+				//在前面加上空格
+			for (i = 0; i < weekStart; i++) {
+				ddhtml.push('<a>&nbsp;</a>');
+			}
+			//添加dd里面的内容
+			for (i = 1; i < days; i++) {
+				if(year < nowYear) {
+					ddhtml.push('<a class="live disabled">' + i + '</a>');
+				}else if(year == nowYear) {
+					if(month < nowMonth) {
+						ddhtml.push("<a class = 'live disabled'>"+i+"</a>");
+					}else if(month == nowMonth) {
+						if(i < nowDay) {
+							ddhtml.push("<a class = 'live disabled'>"+i+"</a>");
+						}else if(i == nowDay) {
+							ddhtml.push("<a class = 'live today'>"+i+"</a>");
+						}else {
+							ddhtml.push("<a class = 'live on'>"+i+"</a>");
+						}
+					}else {
+						ddhtml.push("<a class = 'live on'>"+i+"</a>");
+					}
+				}else {
+					ddhtml.push("<a class = 'live on'>"+i+"</a>");
+				}
+			}
+				//将数组赋值给dd,加上join()是去掉逗号.
+			dd.innerHTML = ddhtml.join("");
+
+			//如果有drawDate ,去除，这一步是当切换到其他月份和年份时，
+				//移除之前的，不然会重叠
+			var odiv = this.container.getElementsByClassName("contFrame")[0];
+			if(!!odiv) {
+				this.container.removeChild(odiv);
+			} 
+
+			this.container.appendChild(dateWrap);
+			
+			this.linkOn();	
+
+			this.outclick();
+
+		},
+
+		btnEvent: function () {
+			var preYear = this.dateWrap.getElementsByClassName("preYear")[0],
+			    preMonth = this.dateWrap.getElementsByClassName("preMonth")[0],
+			    nextYear = this.dateWrap.getElementsByClassName("nextYear")[0],
+			    nextMonth = this.dateWrap.getElementsByClassName("nextMonth")[0],
+			    that = this;
+			//因为是函数中的函数，在onclick中如果用this的话会变成
+					// preYear这个按钮。而我们需要的是括号外面的this.所以用that代替
+		    preYear.onclick = function () {
+		   		var idate = new Date(that.year - 1,that.month - 1,that.day);
+		   		that.drawDate(idate);
+		    };
+
+		    preMonth.onclick = function () {
+			   	var idate = new Date(that.year,that.month - 2,that.day);
+			   	that.drawDate(idate);
+		    };
+
+		    nextYear.onclick = function () {
+			   	var idate = new Date(that.year + 1,that.month - 1,that.day);
+			   	that.drawDate(idate);
+		    };
+
+		    nextMonth.onclick = function () {
+			   	var idate = new Date(that.year,that.month,that.day);
+			   	that.drawDate(idate);
+			};
+		},
+		inputEvent : function () {
+			var that = this;
+
+			this.backDate.onfocus = function () {
+				//将对话框和日历都写进去，drawDate()穿进去的是当前日期
+				that.createContainer();
+				that.drawDate(new Date());
+			}
+		},
+		linkOn : function() {
+			var that = this;
+
+			var links = document.getElementsByClassName("live"),
+				len = links.length;
+
+			for (var i = 0; i < len; i++) {
+				links[i].onmouseover = function () {
+					addClass("addShow",this);
+				};
+				links[i].onmouseout = function () {
+					removeClass("addShow",this);
+				};
+				links[i].onclick = function () {
+					// 将this.day的值赋给this.innerHTML就能正常显示了；
+					that.day = this.innerHTML;
+					that.backDate.value = that.year + '-' + that.month + '-' + that.day;
+
+					//在对话框出现选择的日期后删除日期框
+					var odiv = that.container.getElementsByClassName("contFrame")[0];
+					if(!!odiv) {
+						that.container.removeChild(odiv);
+					}
+				};
+			}
+		},
+		outclick: function () {
+			var that = this;
+			document.onclick = function (e) {
+				var e = e || window.event;
+
+				var target = e.target || e.srcElement;
+				console.log(that.container);
+				if(target == that.container){
+					return false;
+				}else {
+					var odiv = that.container.getElementsByClassName("contFrame")[0];
+					if(!!odiv) {
+						that.container.removeChild(odiv);
+					}
+				}	
+			}	
+		}
+	}
+	var myDate = new Calendar({
+		id : "backDate"
+	});
+}
+</script>
+
+</body>
+</html>

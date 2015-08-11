@@ -1,0 +1,78 @@
+@import "compass/css3";
+
+*{margin:0;padding:0;border:0;text-decoration:none;
+	box-sizing:border-box;list-style:none;}
+
+body {
+	// position:relative;
+	// overflow:hidden;
+}
+
+.clearfix {
+	*zoom:1;
+}
+.clearfix:after,.clearfix:before {
+	display:table;
+	line-height:0;
+	content:"";
+}
+.clearfix:after {
+	clear:both;
+}
+
+#cont {
+	width:800px;
+	height:100%;
+	margin:0 auto;
+	border:1px solid red;
+	#first {
+		border:1px solid red;
+		background:url(../images/1F.jpg);
+	}
+	.common {
+		position:absolute;
+		width:800px;
+		height:100%;
+	}
+	#second {
+		top:100%;
+		border:1px solid red;
+		background:url(../images/2F.jpg);
+	}
+	#third {
+		top:200%;
+		border:1px solid red;
+		background:url(../images/3F.jpg);
+	}
+	#fourth {
+		top:300%;
+		border:1px solid red;
+		background:url(../images/4F.png);
+	}
+	#five {
+		top:400%;
+		border:1px solid red;
+		background:url(../images/5F.jpg);
+	}
+}
+
+#nav {
+	position:fixed;
+	top:50%;
+	left:80%;
+	
+	#nav-cont li a{
+		display:inline-block;
+		width:70px;
+		height:30px;
+		text-align:center;
+		line-height:30px;
+		&:hover {
+			background:#0000ff;
+		}
+	}
+}
+
+.addShow {
+	background:#0000ff;
+}

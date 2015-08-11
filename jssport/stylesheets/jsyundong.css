@@ -1,0 +1,68 @@
+/* line 4, ../sass/jsyundong.scss */
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 6, ../sass/jsyundong.scss */
+#sport {
+  width: 100%;
+  height: 100px;
+  margin-top: 100px;
+  -moz-transition: 2s;
+  -o-transition: 2s;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+/* line 12, ../sass/jsyundong.scss */
+#hide {
+  position: relative;
+  left: -100px;
+  background: #ff0000;
+  width: 100px;
+  height: 100px;
+}
+
+/* line 20, ../sass/jsyundong.scss */
+#share {
+  position: absolute;
+  top: 30px;
+  left: 100%;
+  width: 20%;
+  cursor: pointer;
+  background: #0000ff;
+  height: 40px;
+  text-align: center;
+}
+
+/* line 31, ../sass/jsyundong.scss */
+#opas {
+  width: 200px;
+  height: 200px;
+  background: #4a86e8;
+  margin-left: 100px;
+}
+
+/* line 39, ../sass/jsyundong.scss */
+#three li {
+  margin: 50px;
+  width: 200px;
+  height: 100px;
+  background: #666;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* line 49, ../sass/jsyundong.scss */
+#addBorder li {
+  margin: 50px;
+  width: 200px;
+  height: 100px;
+  border: 4px solid #000;
+  background: #666;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}

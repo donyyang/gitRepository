@@ -1,0 +1,95 @@
+/* line 3, ../sass/dingwei.scss */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/* line 11, ../sass/dingwei.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* line 14, ../sass/dingwei.scss */
+.clearfix:after, .clearfix:before {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+/* line 19, ../sass/dingwei.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 23, ../sass/dingwei.scss */
+#cont {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+/* line 28, ../sass/dingwei.scss */
+#cont #first {
+  border: 1px solid red;
+  background: url(../images/1F.jpg);
+}
+/* line 32, ../sass/dingwei.scss */
+#cont .common {
+  position: absolute;
+  width: 800px;
+  height: 100%;
+}
+/* line 37, ../sass/dingwei.scss */
+#cont #second {
+  top: 100%;
+  border: 1px solid red;
+  background: url(../images/2F.jpg);
+}
+/* line 42, ../sass/dingwei.scss */
+#cont #third {
+  top: 200%;
+  border: 1px solid red;
+  background: url(../images/3F.jpg);
+}
+/* line 47, ../sass/dingwei.scss */
+#cont #fourth {
+  top: 300%;
+  border: 1px solid red;
+  background: url(../images/4F.png);
+}
+/* line 52, ../sass/dingwei.scss */
+#cont #five {
+  top: 400%;
+  border: 1px solid red;
+  background: url(../images/5F.jpg);
+}
+
+/* line 59, ../sass/dingwei.scss */
+#nav {
+  position: fixed;
+  top: 50%;
+  left: 80%;
+}
+/* line 64, ../sass/dingwei.scss */
+#nav #nav-cont li a {
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+/* line 70, ../sass/dingwei.scss */
+#nav #nav-cont li a:hover {
+  background: #0000ff;
+}
+
+/* line 76, ../sass/dingwei.scss */
+.addShow {
+  background: #0000ff;
+}
+
+

@@ -1,0 +1,124 @@
+/* line 3, ../sass/tuozhuai.scss */
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* line 6, ../sass/tuozhuai.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* line 9, ../sass/tuozhuai.scss */
+.clearfix:after, .clearfix:before {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+/* line 14, ../sass/tuozhuai.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 18, ../sass/tuozhuai.scss */
+body {
+  height: auto;
+  background: url(../images/baidu_demo.png) no-repeat top center;
+}
+
+/* line 22, ../sass/tuozhuai.scss */
+#ui-input {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid red;
+  background: #fff;
+  width: 300px;
+  z-index: 2;
+  display: none;
+}
+
+/* line 33, ../sass/tuozhuai.scss */
+#input-title {
+  padding: 10px;
+  background: #ccc;
+  cursor: move;
+}
+/* line 37, ../sass/tuozhuai.scss */
+#input-title a {
+  display: inline-block;
+  float: right;
+  width: 20px;
+  height: 20px;
+  background: url(../images/close_def.png) no-repeat;
+}
+/* line 43, ../sass/tuozhuai.scss */
+#input-title a:hover {
+  background: url(../images/close_hov.png) no-repeat;
+}
+
+/* line 49, ../sass/tuozhuai.scss */
+.input-cont {
+  padding: 30px 20px;
+}
+/* line 51, ../sass/tuozhuai.scss */
+.input-cont a {
+  float: right;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+/* line 57, ../sass/tuozhuai.scss */
+.input-cont .login {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background: #0000ff;
+}
+
+/* line 67, ../sass/tuozhuai.scss */
+.common {
+  display: block;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  padding: 5px;
+  padding-left: 25px;
+}
+
+/* line 77, ../sass/tuozhuai.scss */
+.userName {
+  background: url(../images/input_username.png) no-repeat left;
+}
+
+/* line 81, ../sass/tuozhuai.scss */
+.userPas {
+  margin-top: 10px;
+  background: url(../images/input_password.png) no-repeat left;
+}
+
+/* line 86, ../sass/tuozhuai.scss */
+#marsk {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  border: 1px solid red;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+  z-index: 1;
+  display: none;
+}
+
+/* line 96, ../sass/tuozhuai.scss */
+#logon {
+  margin: 30px;
+  float: right;
+}

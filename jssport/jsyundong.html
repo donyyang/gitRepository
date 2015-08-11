@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="stylesheets/jsyundong.css">
+	<script src = "jsyundong.js"></script>
+	<script src = "jquery-1.11.2.js"></script>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+</head>
+<body>
+	<div id = "sport">
+		<!-- 移入移出动画 -->
+		<div id = "hide">
+			<p id = "share">分享</p>
+		</div>
+		<!-- opacity动画 -->
+		<div id = "opas"></div>
+		<!-- 多物体运动 不加边框-->
+		<div id = "three">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!-- 加上边框之后 -->
+		<div id = "addBorder">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+	
+	$(function () {
+		//Jquery实现移入移出动画
+		$("#hide").mouseover(function() {
+			$(this).stop().animate({
+				left: "0"
+			},1000).mouseout(function() {
+				$(this).stop().animate({
+					left: "-100px"
+				},1000)
+			})
+		})
+		//JQUERY实现淡入淡出
+		$("#opas").mouseover(function () {
+			$(this).stop().animate({
+				opacity: 0
+			},1000).mouseout(function () {
+				$(this).stop().animate({
+					opacity: 1
+				},1000)
+			})
+		})
+		$("#opas").mouseover(function () {
+			$(this).stop().fadeOut(1000);
+		}).mouseout(function () {
+			$(this).stop().fadeIn(1000);
+		})
+
+		//JQUERY实现多物体运动
+		$("#three li").mouseover(function () {
+			$(this).stop().animate({
+				width : "400px",
+				opacity : 0
+			},1000);
+		}).mouseout(function () {
+			$(this).stop().animate({
+				width : "200px",
+				opacity : 1
+			},1000);
+		})
+	})
+
+	//KISSY实现的
+	/*KISSY.use("node,event",function (S,Node,Event) {
+		var $ = S.all, _event = S.Event;
+
+		var thr = $("#three li");
+
+		_event.on(thr,"mouseover",function () {
+			$(this).stop().animate({
+				width : "400px"
+			},1);
+		})
+
+		thr.on("mouseout",function () {
+			$(this).stop().animate({
+				width : "200px"
+			},1);
+		})
+	})*/
+
+	</script>
+</body>
+</html>

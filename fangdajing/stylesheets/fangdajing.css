@@ -1,0 +1,60 @@
+/* line 2, ../sass/fangdajing.scss */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* line 5, ../sass/fangdajing.scss */
+#demo {
+  width: 402px;
+  position: relative;
+  margin: 50px;
+  border: 1px solid red;
+}
+
+/* line 12, ../sass/fangdajing.scss */
+#mark {
+  position: absolute;
+  width: 402px;
+  height: 257px;
+  z-index: 10;
+  background: #fff;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 20, ../sass/fangdajing.scss */
+#small-box {
+  position: relative;
+  cursor: move;
+}
+
+/* line 24, ../sass/fangdajing.scss */
+#float-box {
+  position: absolute;
+  width: 160px;
+  height: 120px;
+  background: #cccccc;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  border: 1px solid #fff;
+}
+
+/* line 32, ../sass/fangdajing.scss */
+#big-box {
+  position: absolute;
+  top: 0;
+  left: 500px;
+  width: 400px;
+  height: 300px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  display:none;
+}
+/* line 40, ../sass/fangdajing.scss */
+#big-box img {
+  position: absolute;
+}
